@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+    <div class="card shadow-sm">
+        <div class="card-body p-5">
+            <h1 class="text-center fw-light display-3 mb-4">Django App</h1>
+            <p class="text-center text-muted">Sistema de gestión de Empleados y Cargos implementado con
+                Vistas Basadas en Funciones (VBF). Administre los cargos de la empresa y el personal
+                asignado a cada uno de ellos.</p>
+            <div class="d-flex justify-content-center gap-2 mt-4">
+                <a href="{% url 'cargo_list' %}" class="btn btn-secondary">Cargos</a>
+                <a href="{% url 'empleado_list' %}" class="btn btn-dark">Empleados</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

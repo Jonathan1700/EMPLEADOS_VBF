@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="d-flex justify-content-between align-items-center my-4">
+                <h1 class="fw-light mb-0">Cargos</h1>
+                <a href="{% url 'cargo_create' %}" class="btn btn-dark">+ Nuevo cargo</a>
+            </div>
+
+            {% for cargo in cargos %}
+            <div class="card mb-3 shadow-sm">
+                <div class="card-body">
+                    <h4 class="card-title text-dark">{{ cargo.nombre }}</h4>
+                    <p class="text-muted mb-3">{{ cargo.descripcion }}</p>
+                    <a href="{% url 'cargo_update' cargo.id %}" class="btn btn-sm btn-secondary">Editar</a>
+                    <a href="{% url 'cargo_delete' cargo.id %}" class="btn btn-sm btn-danger">Eliminar</a>
+                </div>
+            </div>
+            {% empty %}
+            <p class="text-center text-muted">No hay cargos registrados.</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
